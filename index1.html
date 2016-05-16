@@ -150,7 +150,7 @@
                         <div class="col-md-4">
                             <div class="team-item">
                                 <a href="#">
-                                    <img class="img-team img-responsive" src="img/elliotaccueil.jpg">
+                                    <img id="carousel-apprenants" class="img-team img-responsive" src="img/anais3.jpg">
                                     <!-- <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
                                     <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
                                     <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
@@ -346,6 +346,40 @@
             }
         });
     });
+        
+    
+        
+        
+    //Défilement des apprenants sur page d'accueil 
+        
+        var apprenants = ["anais3.jpg","ashvin3.jpg","benoit3.jpg","david3.jpg","elliot3.jpg","faiza3.jpg","fredericb3.jpg","fredericj3.jpg","guillaume3.jpg","kevin3.jpg","lola3.jpg","lorenza3.jpg","mathieu3.jpg","petula3.jpg","philippe3.jpg"];
+        
+    // DEBUT FONCTION HASARD         Renvoie un nombre au hasard
+        function hasard() {
+            var nbAlea = Math.floor(Math.random() * apprenants.length);
+            return nbAlea;
+        }
+        
+        
+        var defilement = setInterval(function(){
+            $("#carousel-apprenants").fadeOut(1000);
+         
+            setTimeout(function(){
+                var position = hasard();
+                document.getElementById('carousel-apprenants').src = "img/"+apprenants[position];
+                apprenants.splice(position, 1);
+                if(apprenants.length<4){
+                    apprenants = ["anais3.jpg","ashvin3.jpg","benoit3.jpg","david3.jpg","elliot3.jpg","faiza3.jpg","fredericb3.jpg","fredericj3.jpg","guillaume3.jpg","kevin3.jpg","lola3.jpg","lorenza3.jpg","mathieu3.jpg","petula3.jpg","philippe3.jpg"];
+                }
+            },1000);
+            
+            $("#carousel-apprenants").fadeIn(1000);
+           
+            
+            
+        },5000);
+        
+       
 
 
     </script>
